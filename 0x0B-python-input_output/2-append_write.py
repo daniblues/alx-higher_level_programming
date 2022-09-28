@@ -10,7 +10,7 @@ def append_write(filename="", text=""):
         filename: filename
         text: text to write
 
-    Raises
+    Raises:
         Exception: when the file can be opened
 
     """
