@@ -2,16 +2,19 @@
 """ Module that defines the class Student
 """
 
-
 class student:
-    """ Class to create student instances """
+    """ class Student """
 
     def __init__(self, first_name, last_name, age):
-        """ Special method to initialize """
+        """ defines a student by
+        first name, last name and age"""
+
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self):
-        """ Method that returns directory description """
-        return self.__dict__.copy()
+        """ Public method that retrieves a dictionary
+        representation of a Student """
+
+        return(self.__dict__)
