@@ -2,8 +2,8 @@
 mport random
 number = random.randint(-10, 10)
 if number < 0:
-print("number is negative")
+print(f"{} is negative".format(number))
 elif number == 0:
-print("number is zero")
+print(f"{} is zero".format(number))
 else:
-print("number is positive")
+print(f"{} is positive".format(number))
