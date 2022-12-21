@@ -1,35 +1,41 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""This module contains a class called Square that defines a square."""
+
+
 class Square:
-    """ A class that defines a square by its size
-    """
+    """This is the Square class definition."""
+
     def __init__(self, size=0):
-        """ Method to initialize the square object
+        """__init__ method to initialize the size attribute.
+        Args:
+            size (int): Size of the square.
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.__size = size
 
     def area(self):
-        """ Method that returns the square are of the object
+        """Calculate the area of the square.
+        Returns:
+            The area of the square.
         """
-        return (self.__size ** 2)
+        return self.__size ** 2
 
     @property
     def size(self):
-        """ Method to returns the size value
+        """Getter method for the size attribute.
+        Returns:
+            The size of the square.
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """ Method to set the size value of the square object
+        """Setter method for the size attribute.
+        Args:
+            value (int): Size of the square.
         """
-        if not isinstance(value, int):
+        if isinstance(value, int) is False:
             raise TypeError("size must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
