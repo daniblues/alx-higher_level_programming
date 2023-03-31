@@ -1,15 +1,12 @@
 #!/usr/bin/python3
 """
-Python script that sends a request to the URL and
-displays the value of a variable in the response header
+given URL as parameter, fetch URL and display value from reponse header
+usage: ./5-hbtn_header https://intranet.hbtn.io
 """
+from sys import argv
 import requests
-import sys
 
 
 if __name__ == "__main__":
-    try:
-        r = requests.get(sys.argv[1])
-        print(r.headers['X-Request-Id'])
-    except:
-        pass
+    r = requests.get(argv[1])
+    print(r.headers.get('X-Request-Id'))

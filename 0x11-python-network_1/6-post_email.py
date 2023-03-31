@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Python script that takes in a URL and an email address,
-sends a POST request to the passed URL with the email,
-and displays the body of the response
+given URL & email as params, send POST req to URL, display response body utf-8
+usage: ./6-post_email.py http://0.0.0.0:5000/post_email hr@holbertonschool.com
 """
+from sys import argv
 import requests
-import sys
-
 
 if __name__ == "__main__":
-    r = requests.post(sys.argv[1], data={'email': sys.argv[2]})
+    url = argv[1]
+    payload = {'email': argv[2]}
+    r = requests.post(url, data=payload)
     print(r.text)
