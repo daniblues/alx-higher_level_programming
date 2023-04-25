@@ -1,19 +1,18 @@
 #!/usr/bin/node
-// JS Script
-require('request').get(process.argv[2], function (err, r, body) {
-  if (err) {
-    console.log(err);
-  } else {
-    let res = {};
-    let temp = JSON.parse(body);
-    for (let i = 0; i < temp.length; i++) {
-      if (temp[i].completed) {
-        if (!(temp[i].userId in res)) {
-          res[temp[i].userId] = 0;
+const request = require('request');
+
+request(process.argv[2], function (err, response, body) {
+  if (err == null) {
+    const resp = {};
+    const json = JSON.parse(body);
+    for (let i = 0; i < json.length; i++) {
+      if (json[i].completed === true) {
+        if (resp[json[i].userId] === undefined) {
+          resp[json[i].userId] = 0;
         }
-        res[temp[i].userId] += 1;
+        resp[json[i].userId]++;
       }
     }
-    console.log(res);
+    console.log(resp);
   }
 });
